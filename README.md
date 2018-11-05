@@ -1,35 +1,35 @@
-## Django
-# Create Virtual Environment
+# Django
+## Create Virtual Environment
 conda create --name VenvName PackageName=version(3.5)
 
-# Activate
+## Activate
 source activate MyDjangoEnv
 
-# Deactivate
+## Deactivate
 source deactivate
 
-# Django Create project
+## Django Create project
 django-admin startproject first_project
 
-# Structure of django project
+## Structure of django project
 * __init__.py - This is a blank Python script that due to its special name let’s Python know that this directory can be treated as a package
 * settings.py - This is where you will store all your project settings
 * urls.py - This is a Python script that will store all the URL patterns for your project. Basically the different pages of your web application.
 * wsgi.py - This is a Python script that acts as the Web Server Gateway Interface. It will later on help us deploy our web app to production
 * manage.py - This is a Python script that we will use a lot. It will be associates with many commands as we build our web app!
 
-# Install Django
+## Install Django
 conda install django
 
-# Run Server
+## Run Server
 python manage.py runserver
 
 **Note** - settings.py change DEBUG to false to avoid log message to user
 
-# Create app inside project
+## Create app inside project
 python manage.py startapp first_app
 
-# Structure of app
+## Structure of app
 * __init__.py -	This is a blank Python script that due to its special name let’s Python know that this directory can be treated as a package
 * admin.py - You can register your models here which Django will then use them with Django’s admin interface.
 * apps.py - Here you can place application specific configurations
