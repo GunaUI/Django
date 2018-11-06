@@ -39,3 +39,11 @@ python manage.py startapp first_app
 * **Migrations folder-** This directory stores database specific information as it relates to the models
 
 **Note** - Inform project about the newly created app by adding app details to settings.py INSATALLED_APPS
+
+## Mapping URLS
+    include() function from django.conf.urls (Specific URL for app)
+    from django.urls import path, include
+    from first_app import views
+    urlpatterns = [
+        path('app/', include('first_app.urls')),
+    ]
