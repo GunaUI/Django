@@ -47,3 +47,9 @@ python manage.py startapp first_app
     urlpatterns = [
         path('app/', include('first_app.urls')),
     ]
+
+## Templates
+
+* Create a Template folder inside project
+* Assign URL in settings.py
+* Use template with expression in views.py
