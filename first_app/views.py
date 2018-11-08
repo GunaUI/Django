@@ -8,3 +8,8 @@ def index(request):
     return render(request, 'first_app/index.html', context=my_dict)
 def home(request):
     return HttpResponse("Welcome to home!")
+
+def showhelp(request):
+    # return HttpResponse("Hello World!")
+    my_dict ={'insert_me' : "Help Template!"}
+    return render(request, 'first_app/help.html', context=my_dict)
