@@ -53,3 +53,20 @@ python manage.py startapp first_app
 * Create a Template folder inside project
 * Assign URL in settings.py
 * Use template with expression in views.py
+
+## Static Files
+
+* Create a static folder inside project
+* Assign URL in settings.py
+    STATIC_DIR = os.path.join(BASE_DIR,"static")
+
+    STATICFILES_DIRS = [
+
+        STATIC_DIR,
+
+    ]
+* Load static files in html
+
+    {% load staticfiles %}
+    <link rel="stylesheet" href="{% static "css/mystyle.css" %}"/>
+    <img src="{% static "images/img.jpg" %}" alt=" Picture "/>
