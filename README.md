@@ -60,6 +60,7 @@ python manage.py startapp first_app
 * Assign URL in settings.py
 
     STATIC_DIR = os.path.join(BASE_DIR,"static")
+
     STATICFILES_DIRS = [
 
         STATIC_DIR,
@@ -68,5 +69,7 @@ python manage.py startapp first_app
 * Load static files in html
 
     {% load staticfiles %}
+
     '<link rel="stylesheet" href="{% static "css/mystyle.css" %}"/>'
+    
     '<img src="{% static "images/img.jpg" %}" alt=" Picture "/>'
