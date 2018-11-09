@@ -90,7 +90,6 @@ python manage.py startapp first_app
     <link rel="stylesheet" href="{% static "css/mystyle.css" %}"/>
     <img src="{% static "images/img.jpg" %}" alt=" Picture "/>
     ```
-#### Next Branch : django-Model
 
 ## Models 
 * To create an actual model, we use a class structure inside of the relevant applications models.py file
@@ -144,4 +143,5 @@ python manage.py startapp first_app
     ```
     python manage.py createsuperuser
     ```
+#### Next Branch : django-Model
 
