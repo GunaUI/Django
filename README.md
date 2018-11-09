@@ -44,9 +44,9 @@
 * Create a “superuser”
     > python manage.py createsuperuser
 ## Populate dummy data
-    >pip install faker
+    > pip install faker
 
-    ```
+    
     import os 
     os.environ.setdefault('DJANGO_SETTINGS_MODULE','first_project.settings')
 
@@ -85,6 +85,5 @@
         print('populating script')
         populate(20)
         print('populating complete')
-    ```
 #### Next Branch : django-Model
 
