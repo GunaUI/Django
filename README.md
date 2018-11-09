@@ -44,9 +44,10 @@
 * Create a “superuser”
     > python manage.py createsuperuser
 ## Populate dummy data
+    
+* populate_first_app.py 
     > pip install faker
 
-    
     import os 
     os.environ.setdefault('DJANGO_SETTINGS_MODULE','first_project.settings')
 
