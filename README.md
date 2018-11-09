@@ -73,11 +73,12 @@ python manage.py startapp first_app
     '<link rel="stylesheet" href="{% static "css/mystyle.css" %}"/>'
     '<img src="{% static "images/img.jpg" %}" alt=" Picture "/>'
 
-## Models ### Branch (Model)
+## Models 
+#### Branch (Model)
 * To create an actual model, we use a class structure inside of the relevant applications models.py file
 * This class object will be a subclass of Django’s built-in class:
     django.db.models.Model
-
+    ```
     class Topic(models.Model):
         top_name = models.CharField(max_length=264,unique=True)
 
@@ -99,6 +100,7 @@ python manage.py startapp first_app
 
         def __str__(self):
             return str(self.date)
+    ```
 * Migrate the database
     python manage.py migrate
 * Then register the changes to your app, shown here with some generic “app1”:
