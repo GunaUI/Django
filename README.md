@@ -88,5 +88,52 @@
         populate(20)
         print('populating complete')
     ```
+## Models-Templates-Views
+* First: In the views.py file we import any models that we will need to use
+    ```
+    from first_app.models import Topic, Webpage, AccessRecord
+    ```
+* Second: Use the view to query the model for data that we will need
+* Third: Pass results from the model to the template
+    ```
+    webPageList = AccessRecord.objects.order_by('date')
+    date_dict ={'access_records' : webPageList}
+    return render(request, 'first_app/access.html', context=date_dict)
+    ```
+* Fourth:Map a URL to the view.
+    ```
+    <!Doctype html>
+    {% load staticfiles %}
+    <html>
+        <head>
+            <meta charset="utf-8">
+            <title>Django MTV</title>
+            <link rel="stylesheet" href="{% static "css/mystyle.css" %}"/>
+        </head>
+        <body>
+            <h1>Access Records</h1>
+            <div class="djangTwo">
+                {% if access_records %}
+                    <table>
+                        <thead>
+                            <th>Site Name</th>
+                            <th>Date Accessed</th>
+                        </thead>
+                        <tbody>
+                            {% for access in access_records %}
+                                <tr>
+                                    <td>{{ access.name }}</td>
+                                    <td>{{ access.date }}</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                {% else %}
+                    <p>NO ACCESS RECORD FOUND!</p>
+                {% endif %}
+            </div>
+        </body>
+    </html>
+    ```
 #### Next Branch : django-Model
 
