@@ -73,16 +73,16 @@ python manage.py startapp first_app
 
 * Create a static folder inside project
 * Assign URL in settings.py
-```
-    STATIC_DIR = os.path.join(BASE_DIR,"static")
+    ```
+        STATIC_DIR = os.path.join(BASE_DIR,"static")
 
-    STATICFILES_DIRS = [
+        STATICFILES_DIRS = [
 
-        STATIC_DIR,
+            STATIC_DIR,
 
-    ]
+        ]
 
-```
+    ```
 * Load static files in html
     ```
     {% load staticfiles %}
