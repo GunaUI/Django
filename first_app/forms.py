@@ -1,5 +1,6 @@
 from django import forms
 from django.core import validators
+from first_app.models import User
 
 # Custom class validation for form
 
@@ -30,3 +31,11 @@ class FormName(forms.Form):
 
 		if email!=vemail:
 			raise forms.ValidationError("Make Sure Email Match!")
+
+class NewUserForm(forms.ModelForm):
+	"""here you can do form validation like below"""
+	"""name = forms.CharField(validators=[check_for_z])"""	
+	class Meta():
+		"""Meta definition for MODELNAMEform."""
+		model = User
+		fields = '__all__'

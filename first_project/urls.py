@@ -19,7 +19,8 @@ from first_app import views
 
 urlpatterns = [
     path('', views.index, name='index'),
-    path('app/', include('first_app.urls')),
+    # path('app/', include('first_app.urls')),
     path('admin/', admin.site.urls),
-    path('formPage/', views.form_name_view, name='form_name'),
+    # path('formPage/', views.form_name_view, name='form_name'),
+    path('users/', include('first_app.urls')),
 ]

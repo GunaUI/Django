@@ -1,40 +1,37 @@
 # Django
-## Basic Forms 
+## Model Forms 
 * The first thing we need to do is create a forms.py file inside the application! 
-* After that we call Django’s built in forms classes (looks very similar to creating models).
+* After that we call Django’s built in model forms classes (looks very similar to creating models).
     ```
     from django import forms
-    from django.core import validators
+    from first_app.models import User
 
-    # Custom class validation for form
+    class NewUserForm(forms.ModelForm):
+        <!--"""here you can do form validation like below"""
+        """name = forms.CharField(validators=[check_for_z])"""	-->
+	class Meta():
+		model = User
+		fields = '__all__'
+    ```
+* Views.py
 
-    def check_for_z(value):
-        if value[0].lower() != 'z':
-            raise forms.ValidationError("Name needs to be start with Z !")
-    class FormName(forms.Form):
-        # name = forms.CharField(validators=[check_for_z])
-        name = forms.CharField()
-        name = forms.CharField()
-        email = forms.EmailField()
-        verify_email = forms.EmailField(label='Enter email again')
-        text = forms.CharField(widget=forms.Textarea)
-        # botcather = forms.CharField(required=False, widget=forms.HiddenInput, validators=[validators.MaxLengthValidator(0)])
+    ```
+    from django.shortcuts import render
+    from first_app.forms import NewUserForm
 
-        # Custom form Validation
+    def users(request):
+        form = NewUserForm()
 
-        # def clean_botcather(self):
-        # 	botcather = self.cleaned_data['botcather']
-        # 	if len(botcather) > 0 :
-        # 		raise forms.ValidationError("GOTCHA BOT!")
-        # 	return botcather
+        if request.method == 'POST':
+            form = NewUserForm(request.POST)
 
-        def clean(self):
-            all_clean_data = super().clean()
-            email = all_clean_data['email']
-            vemail = all_clean_data['verify_email']
+            if form.is_valid():
+                form.save(commit=True)
+                return index(request)
+            else:
+                print('ERROR FORM INVALID')
 
-            if email!=vemail:
-                raise forms.ValidationError("Make Sure Email Match!")
+        return render(request,'first_app/users.html',{'form':form})
     ```
 * Form HTML
 
@@ -45,5 +42,5 @@
         <input type="submit" class="btn btn-primary" value="Submit"/>
     </form>
     ```
-#### Next Branch : django-model-forms
+#### Next Branch : django-relative-url
 
