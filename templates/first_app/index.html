@@ -8,7 +8,7 @@
     </head>
     <body>
         <h1>Hello this is index.html</h1>
-        {{ insert_me }}
-        <img src="{% static "images/img.jpg" %}" alt=" Picture "/>
+        <a href="{% url 'first_app:users' %}">Users Page</a>
+        <a href="{% url 'admin:index' %}">Admin Page</a>
     </body>
 </html>
