@@ -4,8 +4,8 @@ from first_app.forms import NewUserForm
 
 def index(request):
     # return HttpResponse("Hello World!")
-    my_dict ={'insert_me' : "Hello am from views.py!"}
-    return render(request, 'first_app/index.html', context=my_dict)
+    my_dicts ={'insert_me' : "Hello am from views.py!",'number': 100}
+    return render(request, 'first_app/index.html', context=my_dicts)
     
 def users(request):
     form = NewUserForm()
