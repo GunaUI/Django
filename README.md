@@ -1,46 +1,31 @@
 # Django
-## Model Forms 
-* The first thing we need to do is create a forms.py file inside the application! 
-* After that we call Django’s built in model forms classes (looks very similar to creating models).
+## Relative URL
+* Add app names and path to URL PATH
     ```
-    from django import forms
-    from first_app.models import User
+    app_name = 'first_app'
 
-    class NewUserForm(forms.ModelForm):
-        <!--"""here you can do form validation like below"""
-        """name = forms.CharField(validators=[check_for_z])"""	-->
-	class Meta():
-		model = User
-		fields = '__all__'
+    urlpatterns = [
+        path('', views.users, name='users')
+    ]
     ```
-* Views.py
-
+* After that use link in html.
     ```
-    from django.shortcuts import render
-    from first_app.forms import NewUserForm
-
-    def users(request):
-        form = NewUserForm()
-
-        if request.method == 'POST':
-            form = NewUserForm(request.POST)
-
-            if form.is_valid():
-                form.save(commit=True)
-                return index(request)
-            else:
-                print('ERROR FORM INVALID')
-
-        return render(request,'first_app/users.html',{'form':form})
+    <a href="{% url 'first_app:users' %}">Users Page</a>
+        <a href="{% url 'admin:index' %}">Admin Page</a>
     ```
-* Form HTML
-
+## Template Inheritance
+* Base Template
     ```
-    <form method="POST">
-        {{form.as_p}}
-        {% csrf_token %}
-        <input type="submit" class="btn btn-primary" value="Submit"/>
-    </form>
+        {% block body_block %}
+            <!--Anything outside of this will be inherited if you extended-->
+        {% endblock %}
+    ```
+* How to use template
+    ```
+    {% extends "first_app/base.html"%}
+        {% block body_block %}
+            <h1>Hello this is help.html</h1>
+        {% endblock %}
     ```
 #### Next Branch : django-relative-url
 

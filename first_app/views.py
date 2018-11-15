@@ -20,3 +20,7 @@ def users(request):
             print('ERROR FORM INVALID')
 
     return render(request,'first_app/users.html',{'form':form})
+
+def help(request):
+    my_dict ={'insert_me' : "Hello am from views.py!"}
+    return render(request, 'first_app/help.html', context=my_dict)

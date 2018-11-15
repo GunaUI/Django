@@ -22,5 +22,6 @@ urlpatterns = [
     # path('app/', include('first_app.urls')),
     path('admin/', admin.site.urls),
     # path('formPage/', views.form_name_view, name='form_name'),
+    path('help/', views.help, name='help'),
     path('users/', include('first_app.urls')),
 ]
