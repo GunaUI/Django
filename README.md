@@ -28,6 +28,7 @@
         {% endblock %}
     ```
 ## Custom Filters
+* create a folder(templatetags) and __init__.py inside templatetags
 * create a file.py (eg: my_extras.py)
     ```
     from django import template
