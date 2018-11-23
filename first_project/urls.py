@@ -19,9 +19,8 @@ from first_app import views
 
 urlpatterns = [
     path('', views.index, name='index'),
-    # path('app/', include('first_app.urls')),
     path('admin/', admin.site.urls),
-    # path('formPage/', views.form_name_view, name='form_name'),
-    path('help/', views.help, name='help'),
-    path('users/', include('first_app.urls')),
+    path('first_app/', include('first_app.urls')),
+    path('logout/', views.user_logout, name='logout'),
+    path('special/', views.special,name='special'),
 ]
